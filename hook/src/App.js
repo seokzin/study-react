@@ -16,7 +16,7 @@ function FuncComp(props) {
   var number = numberState[0];
   var setNumber = numberState[1];
 
-  // var dateState = useState(new Date().toString());
+  // var dateState = useState(new  Date().toString());
   // var _date = dateState[0];
   // var setDate = dateState[1];
   // 위 3줄을 한줄로 축약한 것
@@ -45,13 +45,36 @@ function FuncComp(props) {
   );
 }
 
+var classStyle = "color: red";
 class ClassComp extends React.Component {
   state = {
     number: this.props.initNumber,
     date: new Date().toString(),
   };
 
+  componentWillMount() {
+    console.log("%cclass => componentWillMount", classStyle);
+  }
+
+  componentDidMount() {
+    console.log("%cclass => componentDidMount", classStyle);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("%cclass => shouldComponentUpdate", classStyle);
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log("%cclass => componentWillUpdate", classStyle);
+  }
+
+  componentDidUpdate(nextProps, nextState) {
+    console.log("%cclass => componentDidUpdate", classStyle);
+  }
+
   render() {
+    console.log("%cclass => render", classStyle);
     return (
       <div className="container">
         <h2>class style component</h2>
