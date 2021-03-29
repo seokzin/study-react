@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 
 function Home() {
   return (
@@ -37,13 +37,15 @@ function App() {
       <h1>React Router DOM example</h1>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="/topics">Topics</a>
+          <NavLink to="/topics">Topics</NavLink>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+          <NavLink to="/contact">Contact</NavLink>
         </li>
       </ul>
 
@@ -65,9 +67,9 @@ function App() {
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
